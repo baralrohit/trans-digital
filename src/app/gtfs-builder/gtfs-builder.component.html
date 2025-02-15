@@ -1,0 +1,10 @@
+<div class="gtfs-container">
+
+    <mat-stepper orientation="vertical" linear="true" #stepper>
+        <mat-step label="Upload the Schedule">
+            <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" />
+            <button mat-raised-button (click)="fileInput.click()">Upload the schedule</button>
+        </mat-step>
+    </mat-stepper>
+
+</div>
