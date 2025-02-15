@@ -7,6 +7,8 @@ import { read, utils, WorkSheet } from 'xlsx';
 export class ExcelUtilsService {
   constructor() {}
 
+  route_data: RouteData = {};
+
   readFile(file: File, progress: WritableSignal<number> = signal<number>(0)) {
     const reader = new FileReader();
     reader.onload = () => {
@@ -35,21 +37,38 @@ export class ExcelUtilsService {
     for (const wsname of wsnames) {
       const ws = workbook.Sheets[wsname];
       this.processSheet(ws, wsname);
+
+      // remove all dots and spaces from the sheet name
+      const schedule_name = wsname.replace(/(\.\s*)/g, '_');
+      console.log(`schedule_name = ${schedule_name}`);
+
+      this.route_data[schedule_name] = this.processSheet(ws, wsname);
     }
+
+    console.log(this.route_data);
   }
 
-  processSheet(ws: WorkSheet, wsname: string) {
+  processSheet(ws: WorkSheet, wsname: string): ScheduleData {
     const sheet_range = ws['!ref'];
     const last_row = parseInt(
       (sheet_range as string).split(':')[1].split('').slice(1).join('')
     );
     console.log(`last_row = ${last_row}`);
 
-    this.extractDepotDetails(ws, wsname, last_row);
-    this.extractRouteDetails(ws, wsname, last_row - 2);
+    return {
+      ...this.extractDepotDetails(ws, wsname, last_row),
+      route_schedule: this.extractRouteDetails(ws, wsname, last_row - 2),
+    } as ScheduleData;
   }
 
-  extractDepotDetails(ws: WorkSheet, wsname: string, last_row: number) {
+  extractDepotDetails(
+    ws: WorkSheet,
+    wsname: string,
+    last_row: number
+  ): {
+    depot_departure_details: DepotDetails;
+    depot_arrival_details: DepotDetails;
+  } {
     const depot_details_header = [
       'depot_name',
       'latitude',
@@ -82,7 +101,11 @@ export class ExcelUtilsService {
     };
   }
 
-  extractRouteDetails(ws: WorkSheet, wsname: string, last_row: number) {
+  extractRouteDetails(
+    ws: WorkSheet,
+    wsname: string,
+    last_row: number
+  ): RouteSchedule[] {
     const route_data: RouteSchedule[] = [];
 
     const route_schedule_header = [
@@ -112,6 +135,8 @@ export class ExcelUtilsService {
     }
 
     console.log(route_data.length);
+
+    return route_data;
   }
 }
 
@@ -135,4 +160,14 @@ export interface DepotDetails {
   coordinate: string | number;
   arrival_time: string | Date;
   departure_time: string | Date;
+}
+
+export interface ScheduleData {
+  depot_departure_details: DepotDetails;
+  depot_arrival_details: DepotDetails;
+  route_schedule: RouteSchedule[];
+}
+
+export interface RouteData {
+  [schedule_name: string]: ScheduleData;
 }
