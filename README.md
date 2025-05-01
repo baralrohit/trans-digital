@@ -9,8 +9,8 @@ This web-based application allows **non-technical users** to upload Excel-based 
 > 🧪 **Quality Assurance:** Includes test cases, validation reports, and performance metrics  
 > 🎯 **Sponsor:** NEVCE (Indonesia)
 
-> 🔗 **[Demo link – insert here]**
-
+> 🔗 **[Demo Video link – https://youtu.be/OdPaHf959Oc?feature=shared ]**
+> 🔗 **[Demo link – https://trans-digital-dev.netlify.app/ ]**
 ---
 
 ## 🚀 Getting Started
