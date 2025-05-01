@@ -1,4 +1,29 @@
-# TransDigital
+# TransDigital – GTFS Builder Application
+
+**TransDigital** is a group project developed as part of the University of Canberra's Capstone Unit in collaboration with **NEVCE** (New Energy Vehicle Conversion Ecosystem). The project addresses a real-world challenge in Solo, Indonesia—helping public transport agencies transition to electric vehicles by converting legacy route data into the internationally recognized **General Transit Feed Specification (GTFS)** format.
+
+This web-based application allows **non-technical users** to upload Excel-based schedule data and generate a valid GTFS zip file with minimal manual effort. The platform is designed with usability, accuracy, and performance in mind, and supports validation against GTFS standards.
+
+> 🧠 **Project Focus:** EV transition, data digitalization, public transit modernization  
+> 👥 **Team Project:** Developed by a group of 4 students during Semester 1, 2025  
+> 🧪 **Quality Assurance:** Includes test cases, validation reports, and performance metrics  
+> 🎯 **Sponsor:** NEVCE (Indonesia)
+
+> 🔗 **[Demo link – insert here]**
+
+---
+
+## 🚀 Getting Started
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+
+### Development Server
+
+To start a local development server, run:
+
+```bash
+ng serve
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
