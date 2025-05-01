@@ -4,11 +4,6 @@
 
 This web-based application allows **non-technical users** to upload Excel-based schedule data and generate a valid GTFS zip file with minimal manual effort. The platform is designed with usability, accuracy, and performance in mind, and supports validation against GTFS standards.
 
-> 🧠 **Project Focus:** EV transition, data digitalization, public transit modernization  
-> 👥 **Team Project:** Developed by a group of 4 students during Semester 1, 2025  
-> 🧪 **Quality Assurance:** Includes test cases, validation reports, and performance metrics  
-> 🎯 **Sponsor:** NEVCE (Indonesia)
-
 > 🔗 **[Demo Video link – https://youtu.be/OdPaHf959Oc?feature=shared ]**
 > 🔗 **[Demo link – https://trans-digital-dev.netlify.app/ ]**
 ---
